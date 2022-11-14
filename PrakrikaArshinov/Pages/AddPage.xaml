@@ -1,0 +1,24 @@
+﻿<Page x:Class="PrakrikaArshinov.Pages.AddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrakrikaArshinov.Pages"
+      mc:Ignorable="d" 
+      Background="White"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddPage" Loaded="Page_Loaded">
+
+    <Grid>
+        <StackPanel>
+            <TextBox x:Name="CityNameTextBox" Width="200" Text="Город"></TextBox>
+            <TextBox x:Name="EventNameTextBox" Width="200" Text="Мероприятие"></TextBox>
+            <DatePicker x:Name="DatePicker" Width="200"></DatePicker>
+            <Button x:Name="AddEditButton" Click="AddEditButton_Click" Content="Добавить" Style="{StaticResource MainButton}"></Button>
+            <Button x:Name="EditButton" Click="EditButton_Click" Content="Изменить" Style="{StaticResource MainButton}"></Button>
+        </StackPanel>
+        <StackPanel x:Name="RightPanel"  Orientation="Vertical" HorizontalAlignment="Right"  Width="172">
+            <Button Content="Вернуться" Width="150" Click="BackButton"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

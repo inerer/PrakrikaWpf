@@ -1,0 +1,45 @@
+﻿<Page x:Class="PrakrikaArshinov.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrakrikaArshinov.Pages"
+      mc:Ignorable="d"
+      Background="White"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage" Loaded="Page_Loaded">
+    <Grid>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Left">
+                <Image x:Name="UserPhoto" Source="{Binding Photo}" Width="50" Height="50" Margin="5" ></Image>
+                <TextBlock Text="{Binding Name }" Margin="5"></TextBlock>
+                <TextBlock Text="{Binding LastName}" Margin="5"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBox x:Name="SearchingTextBox" Width="100" Height="20" Margin="5" TextChanged="SearchingTextBox_TextChanged"></TextBox>
+                <RadioButton x:Name="SortByDate" Content="Сортировка по дате" Margin="5" Checked="SortByDate_Checked"></RadioButton>
+                <ComboBox x:Name="FilterComboBox" Width="100" Height="20" Margin="5" Text="Города" DisplayMemberPath="Name" SelectionChanged="FilterComboBox_SelectionChanged"></ComboBox>
+                <RadioButton x:Name="DeleteSortRadioButton" Margin="5" Content="Убрать все изменения" Checked="DeleteSortRadioButton_Checked"></RadioButton>
+            </StackPanel>
+            <StackPanel >
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False"   x:Name="ResultDataGrid" CanUserAddRows="False" SelectionChanged="AgentDataGrid_SelectionChanged" Loaded="AgentDataGrid_Loaded" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Город" Binding="{Binding CityName }"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Наименование меропреиятия" Binding="{Binding EventName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding date }"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="RegisterButton" Content="Регистрация"  Click="RegisterButton_Click" Style="{StaticResource MainButton}" />
+                <Button x:Name="DeleteButton" Content="Удаление" Click="DeleteButton_Click" Style="{StaticResource MainButton}"></Button>
+                <Button x:Name="EditButton" Content="Изменение" Style="{StaticResource MainButton}" Click="EditButton_Click"></Button>
+                <Button x:Name="AddButton" Content="Добавление" Style="{StaticResource MainButton}" Click="AddButton_Click"></Button>
+                <Button x:Name="PrintButton" Content="Печать" Style="{StaticResource MainButton}" Click="PrintButton_Click" ></Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="RightPanel"  Orientation="Vertical" HorizontalAlignment="Right"  Width="172">
+            <Button Content="Вернуться" Width="150" Click="BackButton"></Button>
+        </StackPanel>
+    </Grid>
+</Page>
